@@ -18,6 +18,35 @@ dropout = 0.2
 # Andrej get 1.48 validation loss with this model
 # A100 GPU trains it in 15 min
 #
+# output obtained with this code:
+#
+#cuda
+#step 0: train loss 4.2846, val loss 4.2820
+#step 500: train loss 2.1206, val loss 2.1751
+#step 1000: train loss 1.7090, val loss 1.8609
+#step 1500: train loss 1.5298, val loss 1.7195
+#step 2000: train loss 1.4339, val loss 1.6384
+#step 2500: train loss 1.3619, val loss 1.5855
+#step 3000: train loss 1.3177, val loss 1.5434
+#step 3500: train loss 1.2714, val loss 1.5257
+#step 4000: train loss 1.2373, val loss 1.5005
+#step 4500: train loss 1.2076, val loss 1.4953
+
+
+#HENRY VI:
+#And, in my faith, grace water'd, as tarrand me
+#As if tell thy damt aside thice doth shine
+#Lebert condemns toils as my hearth lies:
+#Sweeter that dog when it do it so;
+#My foe have I cannot for use thrown usurp itself,
+#A stead officious, or gods, let me brow
+#Prop on this weeping young use down:
+#And so, by fortune spiciets in your langest ords,
+#Thou would do brother to beir both hers,
+#Pardon word reward for troops and sogstiting a word
+#And twelving with falsehold the cobking, as they
+#You
+
 # ------------
 print(device)
 
