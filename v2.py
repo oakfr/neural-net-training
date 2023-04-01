@@ -10,11 +10,14 @@ eval_interval = 500
 learning_rate = 3e-4
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 eval_iters = 200
-n_embd = 384
+n_embd = 384 # every head is 64-dim
 n_head = 6
 n_layer = 6
 dropout = 0.2
 
+# Andrej get 1.48 validation loss with this model
+# A100 GPU trains it in 15 min
+#
 # ------------
 print(device)
 
@@ -105,9 +108,9 @@ class FeedForward (nn.Module):
     def __init__(self, n_embd):
         super().__init__()
         self.net = nn.Sequential(
-                nn.Linear(n_embd, 4 * n_embd),
+                nn.Linear(n_embd, 4 * n_embd), # grow internal layer by x4
                 nn.ReLU(),
-                nn.Linear(4 * n_embd, n_embd),
+                nn.Linear(4 * n_embd, n_embd), # this is a residual connection
                 nn.Dropout(dropout)
                 )
 
@@ -125,6 +128,7 @@ class Block(nn.Module):
         self.ln2 = nn.LayerNorm(n_embd)
 
     def forward(self, x):
+        """ add x + for residual connections """
         x = x + self.sa(self.ln1(x))
         x = x + self.ffwd(self.ln2(x))
         return x
